@@ -1,5 +1,5 @@
-import GitHubLogo from '../assets/logo/GitHub.png'
-import InstagramLogo from '../assets/logo/instagram.png'
+import GitHubLogo from '../assets/logo/GitHub.png';
+import InstagramLogo from '../assets/logo/instagram.png';
 
 const contactInfo = [
   {
@@ -17,32 +17,35 @@ const contactInfo = [
     value: 'Denpasar, Bali, Indonesia',
     link: null,
   },
-]
+];
 
 const socialLinks = [
-  { 
-    name: 'GitHub', 
+  {
+    name: 'GitHub',
     username: '@yudnata',
-    link: 'https://github.com/yudnata', 
-    logo: GitHubLogo 
+    link: 'https://github.com/yudnata',
+    logo: GitHubLogo,
   },
-  { 
-    name: 'LinkedIn', 
+  {
+    name: 'LinkedIn',
     username: 'yudnata',
-    link: 'https://linkedin.com/in/yudnata', 
-    logo: null 
+    link: 'https://linkedin.com/in/yudnata',
+    logo: null,
   },
-  { 
-    name: 'Instagram', 
+  {
+    name: 'Instagram',
     username: '@yudnata',
-    link: 'https://instagram.com/yudnata', 
-    logo: InstagramLogo 
+    link: 'https://instagram.com/yudnata',
+    logo: InstagramLogo,
   },
-]
+];
 
 const Contact = () => {
   return (
-    <section id="contact" className="min-h-screen flex items-center py-24 px-6">
+    <section
+      id="contact"
+      className="min-h-screen flex items-center py-24 px-6"
+    >
       <div className="w-full max-w-4xl mx-auto">
         <div className="animate-on-scroll text-center mb-16">
           <p className="text-white font-medium text-sm mb-2 uppercase tracking-wider">Contact</p>
@@ -52,7 +55,10 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="animate-on-scroll grid sm:grid-cols-3 gap-4 mb-12" style={{ transitionDelay: '0.1s' }}>
+        <div
+          className="animate-on-scroll grid sm:grid-cols-3 gap-4 mb-12"
+          style={{ transitionDelay: '0.1s' }}
+        >
           {contactInfo.map((info) => (
             <div
               key={info.label}
@@ -74,7 +80,10 @@ const Contact = () => {
           ))}
         </div>
 
-        <div className="animate-on-scroll flex justify-center gap-8" style={{ transitionDelay: '0.2s' }}>
+        <div
+          className="animate-on-scroll flex justify-center gap-8"
+          style={{ transitionDelay: '0.2s' }}
+        >
           {socialLinks.map((social) => (
             <a
               key={social.name}
@@ -83,13 +92,13 @@ const Contact = () => {
               rel="noopener noreferrer"
               className="flex flex-col items-center gap-2 transition-all hover:scale-110"
             >
-              <div 
+              <div
                 className="w-14 h-14 rounded-xl flex items-center justify-center overflow-hidden"
                 style={{ backgroundColor: '#1E1E1E' }}
               >
                 {social.logo ? (
-                  <img 
-                    src={social.logo} 
+                  <img
+                    src={social.logo}
                     alt={social.name}
                     className="w-7 h-7 object-contain"
                   />
@@ -106,7 +115,7 @@ const Contact = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

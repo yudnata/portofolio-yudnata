@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 
 const navLinks = [
   { name: 'Home', href: '#home' },
@@ -6,31 +6,31 @@ const navLinks = [
   { name: 'Projects', href: '#projects' },
   { name: 'Skills', href: '#skills' },
   { name: 'Contact', href: '#contact' },
-]
+];
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const scrollToSection = (e, href) => {
-    e.preventDefault()
-    const element = document.querySelector(href)
+    e.preventDefault();
+    const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      element.scrollIntoView({ behavior: 'smooth' });
     }
-    setIsMenuOpen(false)
-  }
+    setIsMenuOpen(false);
+  };
 
   return (
-    <nav 
+    <nav
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
       style={{
         backgroundColor: isScrolled ? '#121212' : 'transparent',
@@ -38,7 +38,10 @@ const Navbar = () => {
       }}
     >
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-        <a href="#home" className="text-xl font-bold text-white">
+        <a
+          href="#home"
+          className="text-xl font-bold text-white"
+        >
           yudnata
         </a>
 
@@ -68,14 +71,24 @@ const Navbar = () => {
           className="md:hidden flex flex-col gap-1.5 p-2"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-          <span className={`w-5 h-0.5 bg-white transition-all ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-          <span className={`w-5 h-0.5 bg-white transition-all ${isMenuOpen ? 'opacity-0' : ''}`}></span>
-          <span className={`w-5 h-0.5 bg-white transition-all ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+          <span
+            className={`w-5 h-0.5 bg-white transition-all ${
+              isMenuOpen ? 'rotate-45 translate-y-2' : ''
+            }`}
+          ></span>
+          <span
+            className={`w-5 h-0.5 bg-white transition-all ${isMenuOpen ? 'opacity-0' : ''}`}
+          ></span>
+          <span
+            className={`w-5 h-0.5 bg-white transition-all ${
+              isMenuOpen ? '-rotate-45 -translate-y-2' : ''
+            }`}
+          ></span>
         </button>
       </div>
 
       {isMenuOpen && (
-        <div 
+        <div
           className="md:hidden mt-2 mx-4 rounded-lg"
           style={{ backgroundColor: '#1E1E1E' }}
         >
@@ -104,7 +117,7 @@ const Navbar = () => {
         </div>
       )}
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
