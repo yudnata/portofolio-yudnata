@@ -1,7 +1,23 @@
+import HeroBg from '../assets/image/hero-section.webp'
+
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-6">
-      <div className="w-full max-w-3xl mx-auto text-center animate-on-scroll">
+    <section 
+      id="home" 
+      className="min-h-screen flex items-center justify-center px-6 relative"
+      style={{
+        backgroundImage: `url(${HeroBg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
+      <div 
+        className="absolute inset-0"
+        style={{ backgroundColor: 'rgba(18, 18, 18, 0.85)' }}
+      ></div>
+      
+      <div className="w-full max-w-3xl mx-auto text-center animate-on-scroll relative z-10">
         <p className="text-white font-medium mb-4 text-lg">Hello, I'm</p>
         
         <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white leading-tight">
