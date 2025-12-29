@@ -69,7 +69,7 @@ const About = () => {
                 </svg>
                 Download CV
               </a>
-              <div className="ml-3 w-48 h-[1px] bg-white"></div>
+              <div className="ml-3 w-24 h-[1px] bg-white"></div>
             </div>
           </div>
         </div>
