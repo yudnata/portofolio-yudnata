@@ -18,13 +18,11 @@ const Hero = () => {
       ></div>
 
       <div className="w-full max-w-3xl mx-auto text-center animate-on-scroll relative z-10">
-        <p className="text-white font-medium mb-4 text-lg">Hello, I'm</p>
-
         <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white leading-tight">
           Yudhi Adinata
         </h1>
 
-        <p className="text-xl md:text-2xl text-gray-300 mb-4 font-medium">Fullstack Developer</p>
+        <p className="text-xl md:text-2xl text-gray-300 mb-4 font-medium">Web Developer</p>
 
         <p className="text-lg text-gray-400 mb-10 leading-relaxed">
           I’m a web developer based in Bali, Indonesia, focused on creating modern web applications
