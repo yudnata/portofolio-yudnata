@@ -38,11 +38,18 @@ const projects: Project[] = [
 
 const Projects: React.FC = () => {
   return (
-    <section id="projects" className="py-24 px-6" aria-labelledby="projects-heading">
+    <section
+      id="projects"
+      className="py-24 px-6"
+      aria-labelledby="projects-heading"
+    >
       <div className="max-w-6xl mx-auto">
         <div className="animate-on-scroll">
           <p className="text-white font-medium text-sm mb-2 uppercase tracking-wider">Portfolio</p>
-          <h2 id="projects-heading" className="text-4xl md:text-5xl font-bold mb-4 text-white">
+          <h2
+            id="projects-heading"
+            className="text-4xl md:text-5xl font-bold mb-4 text-white"
+          >
             Featured Projects
           </h2>
           <p className="text-gray-300 text-lg mb-12 max-w-2xl">
@@ -51,11 +58,15 @@ const Projects: React.FC = () => {
           </p>
         </div>
 
-        <div className="space-y-6" role="list" aria-label="Project list">
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          role="list"
+          aria-label="Project list"
+        >
           {projects.map((project, index) => (
             <article
               key={project.id}
-              className="animate-on-scroll project-card group grid md:grid-cols-2 gap-0 rounded-2xl overflow-hidden"
+              className="animate-on-scroll project-card group flex flex-col rounded-2xl overflow-hidden hover:transform hover:scale-[1.02] transition-all duration-300"
               style={{
                 backgroundColor: '#1E1E1E',
                 transitionDelay: `${(index + 1) * 0.1}s`,
@@ -63,43 +74,50 @@ const Projects: React.FC = () => {
               role="listitem"
             >
               <figure
-                className={`h-72 md:h-80 overflow-hidden ${index % 2 === 1 ? 'md:order-2' : ''}`}
+                className="h-48 md:h-56 overflow-hidden"
                 style={{ backgroundColor: '#2C2C2C' }}
               >
                 <img
                   src={project.image}
                   alt={`Screenshot of ${project.appName} project`}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   loading="lazy"
                 />
               </figure>
 
-              <div
-                className={`p-8 flex flex-col justify-center ${
-                  index % 2 === 1 ? 'md:order-1' : ''
-                }`}
-              >
+              <div className="p-6 flex flex-col flex-grow">
                 <p className="text-gray-400 text-sm mb-1">{project.appName}</p>
-                <h3 className="text-2xl font-bold text-white mb-4">{project.title}</h3>
-                <p className="text-gray-300 mb-6 leading-relaxed">{project.description}</p>
+                <h3 className="text-xl font-bold text-white mb-3">{project.title}</h3>
+                <p className="text-gray-300 text-sm mb-4 leading-relaxed line-clamp-3">{project.description}</p>
 
-                <ul className="flex flex-wrap gap-2 mb-6" aria-label="Technologies used">
-                  {project.tags.map((tag) => (
+                <ul
+                  className="flex flex-wrap gap-2 mb-4"
+                  aria-label="Technologies used"
+                >
+                  {project.tags.slice(0, 4).map((tag) => (
                     <li
                       key={tag}
-                      className="px-3 py-1 text-sm rounded-full text-gray-300"
+                      className="px-2 py-1 text-xs rounded-full text-gray-300"
                       style={{ backgroundColor: '#2C2C2C' }}
                     >
                       {tag}
                     </li>
                   ))}
+                  {project.tags.length > 4 && (
+                    <li
+                      className="px-2 py-1 text-xs rounded-full text-gray-400"
+                      style={{ backgroundColor: '#2C2C2C' }}
+                    >
+                      +{project.tags.length - 4}
+                    </li>
+                  )}
                 </ul>
 
                 <a
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 font-semibold text-white hover:gap-3 transition-all"
+                  className="mt-auto inline-flex items-center gap-2 font-semibold text-white hover:gap-3 transition-all"
                   aria-label={`View ${project.appName} project on GitHub`}
                 >
                   View Project
