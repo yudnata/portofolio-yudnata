@@ -2,6 +2,7 @@ import { Project } from '../types';
 import LeadGoImage from '../assets/project/LeadGo.png';
 import LetMeCookImage from '../assets/project/LetMeCook.png';
 import CoreTIImage from '../assets/project/CoreTI.png';
+import CogikaImage from '../assets/project/cogika.png'
 
 const projects: Project[] = [
   {
@@ -9,7 +10,7 @@ const projects: Project[] = [
     title: 'Predictive Lead Scoring Portal',
     appName: 'LeadGo',
     description:
-      'A full-stack CRM microservices solution that predicts customer conversion probability using machine learning. Features Role-Based Access Control (RBAC) for Admin and Sales workflows, real-time analytics dashboard, and comprehensive lead management.',
+      'A full-stack CRM microservices solution that predicts customer conversion probability using machine learning. Features Role-Based Access Control (RBAC) for Admin and Sales workflows, real-time analytics dashboard, and lead management.',
     tags: ['React', 'Node.js', 'PostgreSQL', 'Docker', 'Tailwind CSS', 'CRUD'],
     image: LeadGoImage,
     link: 'https://github.com/yudnata/predictive-lead-scoring-portal',
@@ -33,6 +34,16 @@ const projects: Project[] = [
     tags: ['PHP', 'MySQL', 'JavaScript', 'HTML', 'CSS', 'CRUD'],
     image: CoreTIImage,
     link: 'https://github.com/yudnata/CoreTI',
+  },
+  {
+    id: 4,
+    title: 'Real-time Chat Application',
+    appName: 'Cogika',
+    description:
+      'A modern, responsive messaging platform utilizing WebSocket for instant communication. Features include real-time private and group chats, friend request system, and a seamless adaptive layout for both desktop and mobile devices.',
+    tags: ['React', 'TypeScript', 'Node.js', 'Socket.IO', 'PostgreSQL', 'Tailwind CSS'],
+    image: CogikaImage, // Pastikan variable image ini sudah di-import
+    link: 'https://github.com/yudnata/cogika',
   },
 ];
 
@@ -66,7 +77,7 @@ const Projects: React.FC = () => {
           {projects.map((project, index) => (
             <article
               key={project.id}
-              className="animate-on-scroll project-card group flex flex-col rounded-2xl overflow-hidden hover:transform hover:scale-[1.02] transition-all duration-300"
+              className="animate-on-scroll project-card group flex flex-col rounded-2xl overflow-hidden hover:transform hover:scale-[1.05] transition-all duration-600"
               style={{
                 backgroundColor: '#1E1E1E',
                 transitionDelay: `${(index + 1) * 0.1}s`,
@@ -74,13 +85,13 @@ const Projects: React.FC = () => {
               role="listitem"
             >
               <figure
-                className="h-48 md:h-56 overflow-hidden"
+                className="h-64 md:h-80 overflow-hidden"
                 style={{ backgroundColor: '#2C2C2C' }}
               >
                 <img
                   src={project.image}
                   alt={`Screenshot of ${project.appName} project`}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-500"
                   loading="lazy"
                 />
               </figure>
@@ -94,7 +105,7 @@ const Projects: React.FC = () => {
                   className="flex flex-wrap gap-2 mb-4"
                   aria-label="Technologies used"
                 >
-                  {project.tags.slice(0, 4).map((tag) => (
+                  {project.tags.slice(0, 10).map((tag) => (
                     <li
                       key={tag}
                       className="px-2 py-1 text-xs rounded-full text-gray-300"
@@ -103,12 +114,12 @@ const Projects: React.FC = () => {
                       {tag}
                     </li>
                   ))}
-                  {project.tags.length > 4 && (
+                  {project.tags.length > 10 && (
                     <li
                       className="px-2 py-1 text-xs rounded-full text-gray-400"
                       style={{ backgroundColor: '#2C2C2C' }}
                     >
-                      +{project.tags.length - 4}
+                      +{project.tags.length - 10}
                     </li>
                   )}
                 </ul>
