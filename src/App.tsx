@@ -6,8 +6,9 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import SEO from './components/SEO';
 
-function App() {
+const App: React.FC = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -33,21 +34,21 @@ function App() {
   }, []);
 
   return (
-    <div
-      className="min-h-screen"
-      style={{ backgroundColor: '#121212' }}
-    >
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Projects />
-        <Skills />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <>
+      <SEO />
+      <div className="min-h-screen" style={{ backgroundColor: '#121212' }}>
+        <Navbar />
+        <main role="main">
+          <Hero />
+          <About />
+          <Projects />
+          <Skills />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </>
   );
-}
+};
 
 export default App;
