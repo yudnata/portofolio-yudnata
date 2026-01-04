@@ -30,6 +30,7 @@ const About: React.FC = () => {
           <article className="animate-on-scroll space-y-6" style={{ transitionDelay: '0.2s' }}>
             <div className="space-y-4 text-gray-300 text-lg leading-relaxed">
               <p>
+                Hi my name is <strong className="text-white font-semibold">Gede Yudhi Adinata Putra Kurniawan</strong>.
                 I'm an Information Technology student at{' '}
                 <strong className="text-white font-semibold">Udayana University</strong>, Bali with a current
                 GPA of 3.77. I'm passionate about building modern, user-centered web
