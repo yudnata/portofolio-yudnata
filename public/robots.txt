@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://yudnata.com/sitemap.xml
+Sitemap: https://portofolio-yudnata.vercel.app/sitemap.xml

@@ -7,8 +7,8 @@ const defaultSEO = {
     'Portfolio of Yudhi Nata, a fullstack developer based in Bali, Indonesia specializing in modern web applications using React and Node.js.',
   keywords:
     'Yudhi Nata, fullstack developer, web developer Bali, React developer, Node.js, UI UX, Indonesia, portfolio',
-  image: 'https://yudnata.com/preview.png',
-  url: 'https://yudnata.com/',
+  image: 'https://portofolio-yudnata.vercel.app/preview.png',
+  url: 'https://portofolio-yudnata.vercel.app/',
   type: 'website',
 };
 
