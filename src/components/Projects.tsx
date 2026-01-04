@@ -54,7 +54,7 @@ const Projects: React.FC = () => {
       className="py-24 px-6"
       aria-labelledby="projects-heading"
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <div className="animate-on-scroll">
           <p className="text-white font-medium text-sm mb-2 uppercase tracking-wider">Portfolio</p>
           <h2
