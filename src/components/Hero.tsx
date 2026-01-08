@@ -51,7 +51,7 @@ const Hero: React.FC = () => {
       />
 
       <div className="w-full max-w-6xl mx-auto relative z-10">
-        <div className="grid md:grid-cols-10 gap-8 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-10 gap-8 items-center">
           <div
             className="hidden md:flex md:col-span-4 items-center justify-center animate-on-scroll"
             style={{ transitionDelay: '0.1s' }}

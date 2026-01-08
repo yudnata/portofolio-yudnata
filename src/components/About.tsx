@@ -43,7 +43,7 @@ const About: React.FC = () => {
             A bit about myself
           </h2>
         </div>
-        <div className="grid md:grid-cols-10 gap-8 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-10 gap-8 items-center">
           <div
             className="md:col-span-4 animate-on-scroll"
             style={{ transitionDelay: '0.1s' }}
@@ -61,7 +61,7 @@ const About: React.FC = () => {
                 />
               </div>
               {animationData && (
-                <div className="absolute -bottom-24 -right-16 w-48 h-48 md:w-64 md:h-64">
+                <div className="hidden md:block absolute -bottom-24 -right-16 w-48 h-48 md:w-64 md:h-64">
                   <LottieAnimation animationData={animationData} />
                 </div>
               )}
@@ -83,7 +83,7 @@ const About: React.FC = () => {
                 applications that solve real problems.
               </p>
             </div>
-            <div className="flex gap-4">
+            <div className="flex flex-col sm:flex-row gap-4">
               <div
                 className="flex-1 rounded-xl p-5"
                 style={{ backgroundColor: '#1E1E1E' }}
