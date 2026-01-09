@@ -1,4 +1,4 @@
-import { MouseEvent, useEffect, useState } from 'react';
+import { MouseEvent, useEffect, useState, useRef } from 'react';
 import { useLottie } from 'lottie-react';
 import HeroBg from '../assets/image/hero-section.webp';
 
@@ -11,7 +11,7 @@ const LottieAnimation: React.FC<{ animationData: any }> = ({ animationData }) =>
   const { View, setSpeed } = useLottie(options);
 
   useEffect(() => {
-    setSpeed(0.5);
+    setSpeed(0.8);
   }, [setSpeed]);
 
   return <div className="w-full h-full">{View}</div>;
@@ -19,12 +19,40 @@ const LottieAnimation: React.FC<{ animationData: any }> = ({ animationData }) =>
 
 const Hero: React.FC = () => {
   const [animationData, setAnimationData] = useState(null);
+  const [displayText, setDisplayText] = useState('');
+  const [showCursor, setShowCursor] = useState(true);
+  const fullName = 'Yudhi Adinata';
+  const typingComplete = useRef(false);
 
   useEffect(() => {
-    fetch('/Developer.json')
+    fetch('/hello.json')
       .then((response) => response.json())
       .then((data) => setAnimationData(data))
       .catch((error) => console.error('Error loading Lottie animation:', error));
+  }, []);
+
+  useEffect(() => {
+    if (typingComplete.current) return;
+
+    let currentIndex = 0;
+    const typingInterval = setInterval(() => {
+      if (currentIndex <= fullName.length) {
+        setDisplayText(fullName.slice(0, currentIndex));
+        currentIndex++;
+      } else {
+        clearInterval(typingInterval);
+        typingComplete.current = true;
+      }
+    }, 100);
+
+    return () => clearInterval(typingInterval);
+  }, []);
+
+  useEffect(() => {
+    const cursorInterval = setInterval(() => {
+      setShowCursor((prev) => !prev);
+    }, 500);
+    return () => clearInterval(cursorInterval);
   }, []);
 
   const scrollToSection = (e: MouseEvent<HTMLAnchorElement>, selector: string): void => {
@@ -57,17 +85,20 @@ const Hero: React.FC = () => {
             style={{ transitionDelay: '0.1s' }}
           >
             {animationData && (
-              <div className="w-full max-w-md">
+              <div className="w-full max-w-lg opacity-70">
                 <LottieAnimation animationData={animationData} />
               </div>
             )}
           </div>
           <div
-            className="col-span-full md:col-span-6 text-center md:text-left animate-on-scroll"
+            className="col-span-full md:col-span-6 text-left animate-on-scroll mt-20"
             style={{ transitionDelay: '0.2s' }}
           >
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white leading-tight">
-              Yudhi Adinata
+              {displayText}
+              <span className={`${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity`}>
+                |
+              </span>
             </h1>
 
             <p
@@ -83,7 +114,7 @@ const Hero: React.FC = () => {
               into clean, intuitive, and delightful digital experiences for users.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center md:items-start justify-center md:justify-start gap-4">
+            <div className="flex flex-row items-start justify-start gap-4">
               <a
                 href="#projects"
                 onClick={(e) => scrollToSection(e, '#projects')}
