@@ -35,7 +35,6 @@ const About: React.FC = () => {
     >
       <div className="max-w-5xl mx-auto">
         <div className="animate-on-scroll">
-          <p className="text-white font-medium text-sm mb-2 uppercase tracking-wider">About Me</p>
           <h2
             id="about-heading"
             className="text-4xl md:text-5xl font-bold mb-12 text-white"

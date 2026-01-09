@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -9,6 +9,22 @@ import Footer from './components/Footer';
 import SEO from './components/SEO';
 
 const App: React.FC = () => {
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const totalScroll = document.documentElement.scrollTop;
+      const windowHeight =
+        document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scroll = `${totalScroll / windowHeight}`;
+      setScrollProgress(Number(scroll));
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -36,7 +52,15 @@ const App: React.FC = () => {
   return (
     <>
       <SEO />
-      <div className="min-h-screen" style={{ backgroundColor: '#121212' }}>
+      <div
+        className="fixed top-0 left-0 right-0 h-[3px] bg-white opacity-70 origin-left z-[100]"
+        style={{ transform: `scaleX(${scrollProgress})` }}
+      />
+
+      <div
+        className="min-h-screen"
+        style={{ backgroundColor: '#121212' }}
+      >
         <Navbar />
         <main role="main">
           <Hero />

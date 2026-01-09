@@ -113,7 +113,6 @@ const Projects: React.FC = () => {
     >
       <div className="max-w-5xl mx-auto">
         <div className="animate-on-scroll">
-          <p className="text-white font-medium text-sm mb-2 uppercase tracking-wider">Portfolio</p>
           <h2
             id="projects-heading"
             className="text-4xl md:text-5xl font-bold mb-4 text-white"
