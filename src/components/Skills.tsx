@@ -18,7 +18,7 @@ import CanvaLogo from '../assets/logo/Canva.png';
 import ReactLogo from '../assets/logo/React.png';
 import PostmanLogo from '../assets/logo/postman.png';
 import CSSLogo from '../assets/logo/css.png';
-import TypeScriptLogo from '../assets/logo/TypeScript.png';
+import TypeScriptLogo from '../assets/logo/typescript.png';
 import DockerLogo from '../assets/logo/docker.png';
 
 const frontendSkills: Skill[] = [
