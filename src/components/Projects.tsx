@@ -136,7 +136,6 @@ const Projects: React.FC = () => {
               className="animate-on-scroll project-card group flex flex-col rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform duration-300 cursor-pointer"
               style={{ backgroundColor: '#1E1E1E', transitionDelay: `${(index + 1) * 0.1}s` }}
               role="listitem"
-              onMouseEnter={() => openPopup(project)}
               onMouseLeave={cancelOpen}
               onClick={() => openPopupInstant(project)}
             >
